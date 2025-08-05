@@ -1,13 +1,13 @@
 from django.shortcuts import render
 
 def homepage(request):
-    pass
+    return render(request, 'journal/index.html')
 
 def register(request):
-    pass
+    return render(request, 'journal/register.html')
 
 def my_login(request):
-    pass
+    return render(request, 'journal/my_login.html')
 
 def dashboard(request):
-    pass
+    return render(request, 'journal/dashboard.html')
