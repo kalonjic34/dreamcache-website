@@ -3,9 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+    <title> DreamCache | Register</title>
 </head>
 <body>
-    <h1>Register</h1>
+    <div class="container">
+        <h3>Create your account</h3>
+
+        <h5>Share your thoughts today!</h5>
+
+        <br>
+        <br>
+
+        <form method="post" autocomplete="off">
+
+            {% csrf_token %}
+
+            {{RegistrationForm.as_p}}
+            <br>
+
+            <button type="submit">Create account</button>
+        </form>
+    </div>
 </body>
 </html>
