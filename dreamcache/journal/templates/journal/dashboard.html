@@ -1,3 +1,4 @@
+{% extends "journal/navbar.html" %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,8 +7,14 @@
     
 </head>
 <body>
-    <h1>Dashboard</h1>
+    {% block content %}
+    <br>
+    <div class="container bg-black shadow-md p-5 form-layout">
 
-    <a href="{% url 'user-logout'%}">Logout here</a>
+        <h1>Dashboard</h1>
+
+        <a href="{% url 'user-logout'%}">Logout here</a>
+    </div>
+    {% endblock %}
 </body>
 </html>
