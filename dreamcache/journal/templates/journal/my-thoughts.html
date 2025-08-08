@@ -1,0 +1,29 @@
+{% extends "journal/navbar.html" %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+</head>
+<body>
+    {% block content %}
+        <br>
+        {% for thought in AllThoughts %}
+        <div class="container bg-black shadow-md p-5 form-layout">
+
+            {{thought.title}}
+            <br>
+            {{thought.content}}
+            <br>
+            {{thought.date_posted}}
+            <br>
+            <hr>
+            {{thought.user}}
+        </div>
+        <br>
+    {% endfor %}
+    {% endblock %}
+</body>
+</html>
