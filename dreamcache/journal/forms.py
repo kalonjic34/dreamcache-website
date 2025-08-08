@@ -4,6 +4,14 @@ from django.contrib.auth.models import User
 from django import forms
 from django.forms.widgets import PasswordInput, TextInput
 
+from django import forms
+from .models import Thought
+
+class ThoughtForm(forms.ModelForm):
+    class Meta:
+        model = Thought
+        fields = '__all__'
+        
 
 class CreateUserForm(UserCreationForm):
     class Meta:
