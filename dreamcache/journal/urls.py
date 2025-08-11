@@ -9,6 +9,6 @@ urlpatterns = [
     path('user-logout',views.user_logout, name="user-logout"),
     path('create-thought',views.create_thought, name="create-thought"),
     path('my-thoughts',views.my_thoughts, name="my-thoughts"),
+    path('update-thought/<str:pk>',views.update_thought, name="update-thought"),
     
-
 ]
