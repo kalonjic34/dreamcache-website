@@ -12,6 +12,9 @@ from django.contrib import messages
 
 from . models import Thought
 
+from django.contrib.auth.models import User
+
+
 def homepage(request):    
     return render(request, 'journal/index.html')
 
@@ -151,3 +154,16 @@ def profile_management(request):
     context = {'ProfileForm': form}
 
     return render(request, 'journal/profile-management.html', context)
+
+
+@login_required(login_url='my-login')
+def delete_account(request):
+    
+    if request.method == 'POST':
+        deleteUser = User.objects.get(username=request.user)
+    
+        deleteUser.delete()
+        
+        return redirect("")
+    
+    return render(request, 'journal/delete-account.html')
