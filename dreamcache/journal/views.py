@@ -1,6 +1,6 @@
 from django.shortcuts import render,redirect
 
-from . forms import CreateUserForm,LoginForm, ThoughtForm
+from . forms import CreateUserForm,LoginForm, ThoughtForm, UpdateUserForm
 
 from django.contrib.auth.models import auth
 from django.contrib.auth import authenticate, login, logout
@@ -134,3 +134,20 @@ def delete_thought(request, pk):
         return redirect('my-thoughts')
         
     return render(request, 'journal/delete-thought.html')
+
+@login_required(login_url='my-login')
+def profile_management(request):
+
+    form = UpdateUserForm(instance=request.user)
+    
+    if request.method == 'POST':
+        form = UpdateUserForm(request.POST, instance=request.user)
+        
+        if form.is_valid():
+            form.save()
+            
+            return redirect('dashboard')
+        
+    context = {'ProfileForm': form}
+
+    return render(request, 'journal/profile-management.html', context)
