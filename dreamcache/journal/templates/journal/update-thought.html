@@ -1,0 +1,32 @@
+{% extends "journal/navbar.html" %}
+{% load crispy_forms_tags %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+</head>
+<body>
+    {% block content %}
+    <br>
+    <div class="container bg-black shadow-md p-5 form-layout">
+
+        <h3>Update a thought</h3>
+        <br>
+        <form method="POST" autocomplete="off">
+
+            {% csrf_token %}
+
+            {{UpdateThought | crispy}}
+            <br>
+
+            <button type="submit" class="btn btn-secondary btn-md w-100 btn-block p-3">Update thought</button>
+
+        </form>
+
+    </div>
+    {% endblock %}
+</body>
+</html>
