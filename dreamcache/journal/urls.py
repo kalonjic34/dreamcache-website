@@ -10,5 +10,6 @@ urlpatterns = [
     path('create-thought',views.create_thought, name="create-thought"),
     path('my-thoughts',views.my_thoughts, name="my-thoughts"),
     path('update-thought/<str:pk>',views.update_thought, name="update-thought"),
+    path('delete-thought/<str:pk>',views.delete_thought, name="delete-thought"),
     
 ]
