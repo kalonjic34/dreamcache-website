@@ -14,6 +14,8 @@
         <h1>Dashboard</h1> <br>{{user}}
         <br><br>
 
+        <img style="width:100px; height: 100px" src="{{profilePic.profile_pic.url}}" alt="">
+        <br><br>
         <a href="{% url 'user-logout'%}">Logout here</a>
     </div>
     {% endblock %}
