@@ -5,7 +5,7 @@ from django import forms
 from django.forms.widgets import PasswordInput, TextInput
 
 from django import forms
-from .models import Thought
+from .models import Thought, Profile
 
 class ThoughtForm(forms.ModelForm):
     class Meta:
@@ -33,3 +33,12 @@ class UpdateUserForm(forms.ModelForm):
         model = User
         fields = ['username', 'email']
         exclude = ['password1', 'password2']
+
+class UpdateProfileForm(forms.ModelForm):
+    
+    profile_pic = forms.ImageField(widget=forms.FileInput(attrs={'class':'form-control-file'}))
+    
+    class Meta:
+        model = Profile
+        fields = ['profile_pic',]
+        
